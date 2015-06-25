@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	    <meta charset="utf-8"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<title></title>
+        <script>
+            //On mobile devices a device ready event should set this, but on a desktop computer
+            //we are ready as soon as we are started, so set the flag
+            window._nativeReady = true;
+        </script>
+
+        <script src="cordova.cef.2.0.0.js"></script>
+        <script src="kotkacommand.js"></script>
+        <script src="kotkaview.js"></script>
+        <style>
+            body { font-family: "Segoe UI"; }
+            #error { color:Red }
+            section { width: 95%; margin: 10px; padding:5px; border: 1px solid #ccc; background: #eee  }
+        </style>
+
+	</head>
+    <body>
+        <h1>Kotka Development Test</h1>
+
+        <section>
+            <button id="testMemory">memory test</button> <input type="text" id="memorySize" value="16"/>
+        </section>
+
+        <section>
+            <button id="generateError">Generate Error</button>
+        </section>
+
+        <section>
+            <h2>Database operations:</h2>
+        <section>
+            Key: <input type="text" id="keyValueSave" value="keyvalue"/> | <input type="text" id="dataText" value="text to insert"/> | Integer to insert <input type="text" id="dataInt" value="1"/> |
+            <button id="saveData">Save</button>
+        </section>
+        <section>
+            Key: <input type="text" id="keyValueGet" value="keyvalue"/> <button id="getData">Get</button>
+        </section>
+        <section>
+          <button id="getList">List table contents</button>
+        </section>
+        </section>
+
+        <section>
+            <h2>Continuous Cordova Communication</h2>
+        <section>
+            <p>The startListener command adds a watcher to NetworkStateCommand. Whenever the app toggles between online/offline, the JavaScript gets a message about that through Cordova (see NetworkStateCommand.cs)</p>
+            <button id="startListener">StartListener</button> <button id="stopListener">StopListener</button> <br/>
+            <div id="listenerResponse"></div> 
+        </section>
+        <section>
+            <button id="getMultipleResponses">Get multiple respones</button>
+            <div id="multipleResponsesCounter"></div> 
+        </section>
+        </section>
+
+        <hr />
+        <section>
+            Command: <span id="KotkaCommand"></span><br />
+            <label for="JsonInput">json input</label><br/>
+            <textarea id="JsonInput"  rows="4" cols="50"></textarea>
+        </section>
+
+        <section>
+            <label for="JsonOutput">Success Result (Output)</label><br/>
+            <textarea id="JsonOutput"  rows="4" cols="50"></textarea>
+        </section>
+        <section>
+            <label for="JsonOutputError">Error Result</label><br/>
+            <textarea id="JsonOutputError"  rows="4" cols="50"></textarea>
+        </section>
+        
+       
+       
+
+        <script>
+            window.command = new KotkaCommand();
+            window.view = new KotkaView(command);
+        </script>
+    </body>
+</html>
