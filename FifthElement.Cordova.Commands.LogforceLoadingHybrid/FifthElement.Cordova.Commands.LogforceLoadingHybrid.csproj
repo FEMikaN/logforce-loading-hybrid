@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3946FBDF-19F8-4E65-9F13-609673C6019D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FifthElement.Cordova.Commands.LogforceLoadingHybrid</RootNamespace>
+    <AssemblyName>FifthElement.Cordova.Commands.LogforceLoadingHybrid</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Dependencies\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtensionManager.cs" />
+    <Compile Include="IWebBrowserService.cs" />
+    <Compile Include="LogforceLoadingCommand.cs" />
+    <Compile Include="NetworkStateCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Callback.cs" />
+    <Compile Include="Util\IBrowseFileSystemService.cs" />
+    <Compile Include="Util\NetworkStateManager.cs" />
+    <Compile Include="Util\ResourceUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FifthElement.Cordova.Core\FifthElement.Cordova.Core.csproj">
+      <Project>{75C4C1DF-8519-46FF-AA18-88D67812A9B4}</Project>
+      <Name>FifthElement.Cordova.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FifthElement.LogforceLoadingHybrid.Core\FifthElement.LogforceLoadingHybrid.Core.csproj">
+      <Project>{088DEB9F-76CB-43D6-914C-0B58E2A65F6A}</Project>
+      <Name>FifthElement.LogforceLoadingHybrid.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FifthElement.LogforceLoadingHybrid.Database.SQLiteNet\FifthElement.LogforceLoadingHybrid.Database.SQLiteNet.csproj">
+      <Project>{1301587C-E5E6-4EF3-BEF0-9370F98484DE}</Project>
+      <Name>FifthElement.LogforceLoadingHybrid.Database.SQLiteNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FifthElement.LogforceLoadingHybrid.Database\FifthElement.LogforceLoadingHybrid.Database.csproj">
+      <Project>{68BE09C4-4A8A-407C-A699-B83F805070C9}</Project>
+      <Name>FifthElement.LogforceLoadingHybrid.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FifthElement.LogforceLoadingHybrid.RestService\FifthElement.LogforceLoadingHybrid.RestService.csproj">
+      <Project>{3AAF6751-BE5A-4B0C-BB60-38D7F2DF1151}</Project>
+      <Name>FifthElement.LogforceLoadingHybrid.RestService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

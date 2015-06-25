@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{088DEB9F-76CB-43D6-914C-0B58E2A65F6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FifthElement.LogforceLoadingHybrid.Core</RootNamespace>
+    <AssemblyName>FifthElement.LogforceLoadingHybrid.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Model\AddWatchCommandArgs.cs" />
+    <Compile Include="Model\ClearWatchCommandArgs.cs" />
+    <Compile Include="Model\GetCustomerFromSap.cs" />
+    <Compile Include="Model\IBaseObject.cs" />
+    <Compile Include="Model\IntegrationStatus.cs" />
+    <Compile Include="Model\KeyValueStorage.cs" />
+    <Compile Include="Model\IResponse.cs" />
+    <Compile Include="mockdata\InsertCustomerMockData.cs" />
+    <Compile Include="mockdata\MockData.cs" />
+    <Compile Include="Model\TestMemoryParameter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\AppConfiguration.cs" />
+    <Compile Include="Util\StringUtils.cs" />
+    <Compile Include="Util\CryptoUtils.cs" />
+    <Compile Include="Util\NetworkUtils.cs" />
+    <Compile Include="Util\ExceptionUtils.cs" />
+    <Compile Include="Util\ServiceResults.cs" />
+    <Compile Include="Util\DateUtils.cs" />
+    <Compile Include="Util\GeoUtil.cs" />
+    <Compile Include="Util\KotkaJsonUtil.cs" />
+    <Compile Include="Util\LogEvent.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\TempFileStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FifthElement.LogforceLoadingHybrid.Database.SQLiteNet\FifthElement.LogforceLoadingHybrid.Database.SQLiteNet.csproj">
+      <Project>{1301587C-E5E6-4EF3-BEF0-9370F98484DE}</Project>
+      <Name>FifthElement.LogforceLoadingHybrid.Database.SQLiteNet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
